@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4fcvd5mnippx"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/projectiles/projectile/projectile.gd" id="1_pcfbo"]
+[ext_resource type="PackedScene" uid="uid://hth1u5p2ar47" path="res://scenes/components/velocity_2d/velocity_2d.tscn" id="2_xrsr8"]
+[ext_resource type="PackedScene" uid="uid://b4e8pafwkoht0" path="res://scenes/components/hurtbox/hurtbox.tscn" id="3_40wwm"]
+
+[node name="Projectile" type="CharacterBody2D"]
+script = ExtResource("1_pcfbo")
+
+[node name="Velocity2d" parent="." instance=ExtResource("2_xrsr8")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_40wwm")]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Projectile" type="Sprite2D" parent="Visuals"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://8oxowmexwkck"]
+[gd_scene load_steps=7 format=3 uid="uid://8oxowmexwkck"]
 
 [ext_resource type="PackedScene" uid="uid://dqa37mp2yp85f" path="res://scenes/game_objects/entities/entity/entity.tscn" id="1_i3of7"]
 [ext_resource type="Script" path="res://scenes/game_objects/entities/player/player.gd" id="2_mdblp"]
 [ext_resource type="PackedScene" uid="uid://b6bror1u232yt" path="res://scenes/components/game_camera/game_camera.tscn" id="3_qtiwv"]
+[ext_resource type="PackedScene" uid="uid://b5eabwea4uhb7" path="res://scenes/components/inventory/inventory.tscn" id="4_xhyup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4lr8"]
 size = Vector2(32, 32)
@@ -11,16 +12,17 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="Player" instance=ExtResource("1_i3of7")]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("2_mdblp")
-camera_smoothing = 0.1
+camera_smoothing = 0.05
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_q4lr8")
 
 [node name="Velocity2d" parent="." index="1"]
-max_slow_speed = 150.0
-max_neutral_speed = 250.0
-max_fast_speed = 450.0
+max_slow_speed = 100.0
+max_neutral_speed = 200.0
 
 [node name="Hitbox" parent="." index="3"]
 position = Vector2(0, -16)
@@ -29,3 +31,5 @@ position = Vector2(0, -16)
 texture = SubResource("PlaceholderTexture2D_kcws6")
 
 [node name="GameCamera" parent="." index="5" instance=ExtResource("3_qtiwv")]
+
+[node name="Inventory" parent="." index="6" instance=ExtResource("4_xhyup")]

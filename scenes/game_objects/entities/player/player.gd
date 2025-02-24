@@ -1,7 +1,7 @@
 extends Entity
 class_name Player
 
-@export var camera_smoothing := 0.1
+@export var camera_smoothing := 0.05
 
 @onready var player_sprite := $Visuals/PlayerSprite as Sprite2D
 @onready var game_camera := $GameCamera as GameCamera

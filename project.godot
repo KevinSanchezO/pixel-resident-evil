@@ -21,6 +21,12 @@ TweenManager="*res://scenes/autoloads/tween_manager/tween_manager.tscn"
 FrameFreezeManager="*res://scenes/autoloads/frame_freeze_manager/frame_freeze_manager.tscn"
 CameraAccess="*res://scenes/autoloads/camera_access/camera_access.tscn"
 
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=768
+window/stretch/mode="canvas_items"
+
 [input]
 
 up={
@@ -69,7 +75,17 @@ inventory={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Limit"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Interact"
+2d_physics/layer_5="PlayerDamage"
+2d_physics/layer_6="EnemyDamage"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
