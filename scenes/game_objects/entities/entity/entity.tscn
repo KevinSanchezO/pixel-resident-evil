@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqa37mp2yp85f"]
+[gd_scene load_steps=5 format=3 uid="uid://dqa37mp2yp85f"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/entities/entity/entity.gd" id="1_i70gi"]
+[ext_resource type="PackedScene" uid="uid://hth1u5p2ar47" path="res://scenes/components/velocity_2d/velocity_2d.tscn" id="2_mxvfx"]
+[ext_resource type="PackedScene" uid="uid://cgxevii2qlbwt" path="res://scenes/components/health/health.tscn" id="3_wf0rt"]
+[ext_resource type="PackedScene" uid="uid://bpn1fh2kuhv5x" path="res://scenes/components/hitbox/hitbox.tscn" id="4_fja7s"]
 
 [node name="Entity" type="CharacterBody2D"]
 script = ExtResource("1_i70gi")
+
+[node name="Velocity2d" parent="." instance=ExtResource("2_mxvfx")]
+
+[node name="Health" parent="." instance=ExtResource("3_wf0rt")]
+
+[node name="Hitbox" parent="." instance=ExtResource("4_fja7s")]
+
+[node name="Visuals" type="Node2D" parent="."]

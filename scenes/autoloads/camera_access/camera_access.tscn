@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsassorullis1"]
+
+[ext_resource type="Script" path="res://scenes/autoloads/camera_access/camera_access.gd" id="1_aya5u"]
+
+[node name="CameraAccess" type="Node"]
+script = ExtResource("1_aya5u")
