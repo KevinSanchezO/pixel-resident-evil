@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg8mtiawyejto"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/inventory_items/ammunition_items/ammunition_item/ammunition_item.gd" id="1_wqrih"]
+
+[node name="AmmunitionItem" type="Node2D"]
+script = ExtResource("1_wqrih")

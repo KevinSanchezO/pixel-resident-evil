@@ -14,6 +14,11 @@ func _physics_process(_delta: float) -> void:
 	if loss_of_control_effects != []:
 		return
 
+	if Input.is_action_pressed("aim"):
+		game_camera.enter_aiming_camera()
+	if Input.is_action_just_released("aim"):
+		game_camera.exit_aiming_camera()
+
 	if Input.get_action_strength("sprint"):
 		velocity_2d.modify_current_speed(_get_velocity(true))
 	else:

@@ -13,4 +13,4 @@ script = ExtResource("1_pcfbo")
 
 [node name="Visuals" type="Node2D" parent="."]
 
-[node name="Projectile" type="Sprite2D" parent="Visuals"]
+[node name="ProjectileSprite" type="Sprite2D" parent="Visuals"]

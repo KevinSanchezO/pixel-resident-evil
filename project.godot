@@ -83,6 +83,7 @@ inventory={
 2d_physics/layer_4="Interact"
 2d_physics/layer_5="PlayerDamage"
 2d_physics/layer_6="EnemyDamage"
+2d_physics/layer_7="Pickup"
 
 [rendering]
 
