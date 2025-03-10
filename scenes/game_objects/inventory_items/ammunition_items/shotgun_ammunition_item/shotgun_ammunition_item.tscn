@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://sugoxc4r112l"]
+
+[ext_resource type="PackedScene" uid="uid://cg8mtiawyejto" path="res://scenes/game_objects/inventory_items/ammunition_items/ammunition_item/ammunition_item.tscn" id="1_y43aq"]
+[ext_resource type="Texture2D" uid="uid://cmtkw118gjxfg" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/shotgun_ammo_pick_up/shotgun_ammo.png" id="2_xuuuj"]
+
+[node name="ShotgunAmmunitionItem" instance=ExtResource("1_y43aq")]
+amount = 4
+type = 1
+item_image = ExtResource("2_xuuuj")

@@ -1,12 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceewu7wh1vcif"]
+[gd_scene load_steps=9 format=3 uid="uid://ceewu7wh1vcif"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/pick_ups/pick_up/pick_up.gd" id="1_qanhh"]
+[ext_resource type="Material" uid="uid://b4lk57hv0en6x" path="res://resources/materials/2d_highlight.tres" id="2_qky17"]
+[ext_resource type="Texture2D" uid="uid://b2rhqob8dsxk6" path="res://scenes/game_objects/pick_ups/pick_up/ui_pickup.png" id="3_yvvtq"]
 
-[node name="PickUp" type="Node2D"]
-script = ExtResource("1_qanhh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbcyv"]
+atlas = ExtResource("3_yvvtq")
+region = Rect2(0, 0, 32, 32)
 
-[node name="PickUpSprite" type="Sprite2D" parent="."]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gl5h"]
+atlas = ExtResource("3_yvvtq")
+region = Rect2(32, 0, 32, 32)
 
-[node name="PickUpArea" type="Area2D" parent="."]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7bif"]
+atlas = ExtResource("3_yvvtq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qij8k"]
+atlas = ExtResource("3_yvvtq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_adyle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbcyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gl5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7bif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qij8k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PickUp" type="RigidBody2D"]
+material = ExtResource("2_qky17")
 collision_layer = 64
 collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_qanhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(1, 1, 1, 0)
+
+[node name="PickUpSprite" type="Sprite2D" parent="."]
+material = ExtResource("2_qky17")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+
+[node name="DetectedAnimation" type="AnimatedSprite2D" parent="."]
+z_index = 100
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_adyle")
+autoplay = "default"
+frame_progress = 0.277068
+speed_scale = 2.0

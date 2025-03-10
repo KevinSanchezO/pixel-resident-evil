@@ -1,8 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh2x77ujb4vf7"]
+[gd_scene load_steps=10 format=3 uid="uid://bh2x77ujb4vf7"]
 
 [ext_resource type="PackedScene" uid="uid://bidc38yu8bcp3" path="res://ui/crt/crt.tscn" id="1_2i2li"]
 [ext_resource type="PackedScene" uid="uid://8oxowmexwkck" path="res://scenes/game_objects/entities/player/player.tscn" id="1_5ydjl"]
 [ext_resource type="Texture2D" uid="uid://fax25u74gdkh" path="res://icon.svg" id="2_d042y"]
+[ext_resource type="PackedScene" uid="uid://ksj0fvre1kjk" path="res://layers/pick_up_layer/pick_up_layer.tscn" id="3_j4hq1"]
+[ext_resource type="Shader" path="res://resources/shaders/2d_highlight.gdshader" id="4_ijohw"]
+[ext_resource type="PackedScene" uid="uid://dq03k8ap76dy" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/pistol_ammo_pick_up/pistol_ammo_pick_up.tscn" id="4_sioxl"]
+[ext_resource type="PackedScene" uid="uid://bbbimq68bhx7v" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/shotgun_ammo_pick_up/shotgun_ammo_pick_up.tscn" id="5_utce4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58tun"]
+resource_local_to_scene = true
+shader = ExtResource("4_ijohw")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnb3p"]
+resource_local_to_scene = true
+shader = ExtResource("4_ijohw")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
 
 [node name="Room" type="Node2D"]
 
@@ -23,5 +43,15 @@ texture = ExtResource("2_d042y")
 [node name="Icon4" type="Sprite2D" parent="."]
 position = Vector2(334, 171)
 texture = ExtResource("2_d042y")
+
+[node name="PickUpLayer" parent="." instance=ExtResource("3_j4hq1")]
+
+[node name="ShotgunAmmoPickUp" parent="PickUpLayer" instance=ExtResource("5_utce4")]
+material = SubResource("ShaderMaterial_58tun")
+position = Vector2(158, 145)
+
+[node name="PistolAmmoPickUp" parent="PickUpLayer" instance=ExtResource("4_sioxl")]
+material = SubResource("ShaderMaterial_jnb3p")
+position = Vector2(-181, -43)
 
 [node name="Player" parent="." instance=ExtResource("1_5ydjl")]

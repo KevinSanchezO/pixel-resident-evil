@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b4lk57hv0en6x"]
+
+[ext_resource type="Shader" path="res://resources/shaders/2d_highlight.gdshader" id="1_xcu6h"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_xcu6h")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0

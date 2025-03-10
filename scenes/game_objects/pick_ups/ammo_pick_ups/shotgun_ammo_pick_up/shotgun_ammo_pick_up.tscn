@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbbimq68bhx7v"]
+
+[ext_resource type="PackedScene" uid="uid://b3hiamgqqj00v" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/ammo_pick_up/ammo_pick_up.tscn" id="1_lrhrp"]
+[ext_resource type="Shader" path="res://resources/shaders/2d_highlight.gdshader" id="2_dtyl1"]
+[ext_resource type="Texture2D" uid="uid://cmtkw118gjxfg" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/shotgun_ammo_pick_up/shotgun_ammo.png" id="3_42qoo"]
+[ext_resource type="PackedScene" uid="uid://sugoxc4r112l" path="res://scenes/game_objects/inventory_items/ammunition_items/shotgun_ammunition_item/shotgun_ammunition_item.tscn" id="3_gewqg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_soouh"]
+resource_local_to_scene = true
+shader = ExtResource("2_dtyl1")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uch51"]
+radius = 20.0
+
+[node name="ShotgunAmmoPickUp" instance=ExtResource("1_lrhrp")]
+material = SubResource("ShaderMaterial_soouh")
+rounds = 4
+inventory_item = ExtResource("3_gewqg")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_uch51")
+
+[node name="PickUpSprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_soouh")
+texture = ExtResource("3_42qoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" index="0"]
+shape = SubResource("CircleShape2D_uch51")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="DetectedAnimation" parent="." index="3"]
+position = Vector2(0, -30)
+frame_progress = 0.626546

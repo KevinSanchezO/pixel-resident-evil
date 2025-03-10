@@ -12,7 +12,7 @@ var current_zoom : Vector2
 @onready var unzoom_aim_camera := Vector2(1.0, 1.0)
 
 @export var zoom_aim_camera := Vector2(1.2, 1.2)
-@export var zoom_time := 0.3
+@export var zoom_time := 0.1
 
 func _ready() -> void:
 	current_zoom = zoom

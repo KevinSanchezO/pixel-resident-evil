@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dq03k8ap76dy"]
+
+[ext_resource type="PackedScene" uid="uid://b3hiamgqqj00v" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/ammo_pick_up/ammo_pick_up.tscn" id="1_l2c6x"]
+[ext_resource type="Texture2D" uid="uid://b76an4eoo1cpk" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/pistol_ammo_pick_up/pistol_ammo.png" id="2_0nw5p"]
+[ext_resource type="Shader" path="res://resources/shaders/2d_highlight.gdshader" id="2_krdwq"]
+[ext_resource type="PackedScene" uid="uid://dbgv2na48a7ja" path="res://scenes/game_objects/inventory_items/ammunition_items/pistol_ammunition_item/pistol_ammunition_item.tscn" id="3_1r16q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mabik"]
+resource_local_to_scene = true
+shader = ExtResource("2_krdwq")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrc28"]
+radius = 20.0
+
+[node name="PistolAmmoPickUp" instance=ExtResource("1_l2c6x")]
+material = SubResource("ShaderMaterial_mabik")
+rounds = 15
+inventory_item = ExtResource("3_1r16q")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_yrc28")
+
+[node name="PickUpSprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_mabik")
+texture = ExtResource("2_0nw5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" index="0"]
+shape = SubResource("CircleShape2D_yrc28")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="DetectedAnimation" parent="." index="3"]
+position = Vector2(0, -25)
+frame_progress = 0.626546

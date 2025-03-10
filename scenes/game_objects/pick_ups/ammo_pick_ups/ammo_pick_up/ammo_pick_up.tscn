@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3hiamgqqj00v"]
+
+[ext_resource type="PackedScene" uid="uid://ceewu7wh1vcif" path="res://scenes/game_objects/pick_ups/pick_up/pick_up.tscn" id="1_rmoah"]
+[ext_resource type="Shader" path="res://resources/shaders/2d_highlight.gdshader" id="2_i1u5l"]
+[ext_resource type="Script" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/ammo_pick_up/ammo_pick_up.gd" id="2_tg8wa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n5he"]
+resource_local_to_scene = true
+shader = ExtResource("2_i1u5l")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
+[node name="AmmoPickUp" instance=ExtResource("1_rmoah")]
+material = SubResource("ShaderMaterial_0n5he")
+script = ExtResource("2_tg8wa")
+rounds = 0
+
+[node name="PickUpSprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_0n5he")

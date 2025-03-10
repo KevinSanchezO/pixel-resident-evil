@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csr3iummeravo"]
+
+[ext_resource type="Script" path="res://scenes/components/pick_up_detector/pick_up_detector.gd" id="1_52n6f"]
+
+[node name="PickUpDetector" type="Area2D"]
+collision_layer = 2
+collision_mask = 64
+script = ExtResource("1_52n6f")
