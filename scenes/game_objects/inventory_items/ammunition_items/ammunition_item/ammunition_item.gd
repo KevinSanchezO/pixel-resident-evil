@@ -14,8 +14,3 @@ func _ready() -> void:
 
 func reload(value:int) -> void:
 	current_amount -= value
-	
-	if current_amount <= 0:
-		discarded_item.emit()
-	else:
-		modified_item.emit()

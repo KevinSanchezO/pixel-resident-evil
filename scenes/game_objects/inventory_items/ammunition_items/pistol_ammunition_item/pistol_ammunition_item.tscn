@@ -6,3 +6,4 @@
 [node name="PistolAmmunitionItem" instance=ExtResource("1_jwq1c")]
 amount = 12
 item_image = ExtResource("2_swk4j")
+item_name = "H.G Bullets"

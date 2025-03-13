@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://8oxowmexwkck"]
+[gd_scene load_steps=10 format=3 uid="uid://8oxowmexwkck"]
 
 [ext_resource type="PackedScene" uid="uid://dqa37mp2yp85f" path="res://scenes/game_objects/entities/entity/entity.tscn" id="1_i3of7"]
 [ext_resource type="Script" path="res://scenes/game_objects/entities/player/player.gd" id="2_mdblp"]
+[ext_resource type="PackedScene" uid="uid://cs1r8k8yiicju" path="res://scenes/components/picked_message/picked_message.tscn" id="3_ktjgo"]
 [ext_resource type="PackedScene" uid="uid://b6bror1u232yt" path="res://scenes/components/game_camera/game_camera.tscn" id="3_qtiwv"]
 [ext_resource type="PackedScene" uid="uid://b5eabwea4uhb7" path="res://scenes/components/inventory/inventory.tscn" id="4_xhyup"]
 [ext_resource type="PackedScene" uid="uid://csr3iummeravo" path="res://scenes/components/pick_up_detector/pick_up_detector.tscn" id="5_1uohd"]
@@ -33,6 +34,10 @@ position = Vector2(0, -16)
 
 [node name="PlayerSprite" type="Sprite2D" parent="Visuals" index="0"]
 texture = SubResource("PlaceholderTexture2D_kcws6")
+
+[node name="PickedMessage" parent="Visuals" index="1" node_paths=PackedStringArray("inventory") instance=ExtResource("3_ktjgo")]
+position = Vector2(0, -40)
+inventory = NodePath("../../Inventory")
 
 [node name="GameCamera" parent="." index="5" instance=ExtResource("3_qtiwv")]
 

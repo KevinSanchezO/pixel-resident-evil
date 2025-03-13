@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh2x77ujb4vf7"]
+[gd_scene load_steps=12 format=3 uid="uid://bh2x77ujb4vf7"]
 
 [ext_resource type="PackedScene" uid="uid://bidc38yu8bcp3" path="res://ui/crt/crt.tscn" id="1_2i2li"]
 [ext_resource type="PackedScene" uid="uid://8oxowmexwkck" path="res://scenes/game_objects/entities/player/player.tscn" id="1_5ydjl"]
@@ -17,6 +17,22 @@ shader_parameter/highlight_speed = 3.0
 shader_parameter/highlight_width = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jnb3p"]
+resource_local_to_scene = true
+shader = ExtResource("4_ijohw")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_45btx"]
+resource_local_to_scene = true
+shader = ExtResource("4_ijohw")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bh31m"]
 resource_local_to_scene = true
 shader = ExtResource("4_ijohw")
 shader_parameter/highlight_color = Color(1, 1, 1, 1)
@@ -55,3 +71,11 @@ material = SubResource("ShaderMaterial_jnb3p")
 position = Vector2(-181, -43)
 
 [node name="Player" parent="." instance=ExtResource("1_5ydjl")]
+
+[node name="PistolAmmoPickUp" parent="." instance=ExtResource("4_sioxl")]
+material = SubResource("ShaderMaterial_45btx")
+position = Vector2(211, -222)
+
+[node name="ShotgunAmmoPickUp" parent="." instance=ExtResource("5_utce4")]
+material = SubResource("ShaderMaterial_bh31m")
+position = Vector2(-418, 217)
