@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8mmqwebmnoag"]
+
+[ext_resource type="Script" path="res://scenes/components/casing_spawner/casing_spawner.gd" id="1_10kn8"]
+
+[node name="CasingSpawner" type="Node2D"]
+script = ExtResource("1_10kn8")
+
+[node name="LandingPoint" type="Node2D" parent="."]
+position = Vector2(-20, 0)

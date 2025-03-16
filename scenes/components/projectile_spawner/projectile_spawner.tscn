@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cavk5rr1blmy0"]
+
+[ext_resource type="Script" path="res://scenes/components/projectile_spawner/projectile_spawner.gd" id="1_5ky4y"]
+[ext_resource type="Texture2D" uid="uid://consiwkwl2ffb" path="res://scenes/components/projectile_spawner/muzzle_flash.png" id="2_lyg35"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqbek"]
+atlas = ExtResource("2_lyg35")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adpe7"]
+atlas = ExtResource("2_lyg35")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgjwe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqbek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adpe7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ProjectileSpawner" type="Node2D"]
+script = ExtResource("1_5ky4y")
+
+[node name="FireRate" type="Timer" parent="."]
+
+[node name="MuzzleFlash" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lgjwe")
+frame = 1
+frame_progress = 1.0
+speed_scale = 2.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://h77t7j1pc8h2"]
+
+[ext_resource type="PackedScene" uid="uid://pkhdtd7tvcbt" path="res://scenes/game_objects/inventory_items/weapon_items/weapon_item/weapon_item.tscn" id="1_jcaga"]
+[ext_resource type="Texture2D" uid="uid://blx1tod2261do" path="res://scenes/game_objects/pick_ups/weapon_pick_ups/shotgun_pick_up/rebellion.png" id="2_4ca58"]
+
+[node name="ShotgunItem" instance=ExtResource("1_jcaga")]
+max_rounds_in_chamber = 2
+item_image = ExtResource("2_4ca58")
+item_name = "Rebellion"

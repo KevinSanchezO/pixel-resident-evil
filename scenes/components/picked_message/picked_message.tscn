@@ -3,14 +3,13 @@
 [ext_resource type="Script" path="res://scenes/components/picked_message/picked_message.gd" id="1_8rat2"]
 [ext_resource type="FontFile" uid="uid://chspw2xkjmwnd" path="res://resources/fonts/BIOSfontII.ttf" id="2_qdica"]
 
-[node name="PickedMessage" type="Node2D"]
-script = ExtResource("1_8rat2")
-
-[node name="Label" type="Label" parent="."]
+[node name="PickedMessage" type="Label" groups=["picked_message"]]
+z_index = 100
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_qdica")
 text = "Picked H.G Bullets"
+script = ExtResource("1_8rat2")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

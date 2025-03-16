@@ -31,9 +31,11 @@ func add_item_to_inventory(pick_up:PickUp) -> void:
 func _update_ammo_item(item_instance:AmmunitionItem):
 	for i in get_child_count():
 		var child := get_child(i)
-		if child.type == item_instance.type:
-			child.current_amount += item_instance.amount
-			return
+		
+		if child is AmmunitionItem:
+			if child.type == item_instance.type:
+				child.current_amount += item_instance.amount
+				return
 	self.add_child(item_instance)
 	last_item_picked_name = item_instance.item_name
 	inventory_modified.emit()

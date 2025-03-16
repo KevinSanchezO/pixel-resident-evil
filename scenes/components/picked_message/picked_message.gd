@@ -1,27 +1,24 @@
-extends Node2D
+extends Label
 class_name PickedMessage
 
-@export var inventory:Inventory
-@export var timer_value := 3.0
+@export var timer_value := 2.0
 
-@onready var label = $Label as Label
 @onready var timer = $Timer as Timer
 
 
 func _ready() -> void:
-	inventory.inventory_modified.connect(_show_picked_message)
 	timer.timeout.connect(_hide_picked_message)
 	
 	timer.wait_time = timer_value
-	label.text = ""
-	label.visible = false
+	self.text = ""
+	self.visible = false
 
 
-func _show_picked_message() -> void:
-	label.text = "Picked " + inventory.last_item_picked_name
-	label.visible = true
+func show_picked_message(pick_up_name="obj") -> void:
+	self.text = "Picked " + pick_up_name
+	self.visible = true
 	timer.start()
 
 
 func _hide_picked_message() -> void:
-	label.visible = false
+	self.visible = false

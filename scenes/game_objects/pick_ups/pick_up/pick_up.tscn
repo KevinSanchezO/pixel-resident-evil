@@ -59,6 +59,7 @@ collision_mask = 2
 
 [node name="DetectedAnimation" type="AnimatedSprite2D" parent="."]
 z_index = 100
+position = Vector2(0, -30)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_adyle")
 autoplay = "default"

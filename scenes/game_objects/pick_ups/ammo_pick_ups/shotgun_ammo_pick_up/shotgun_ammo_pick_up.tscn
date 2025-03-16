@@ -20,6 +20,7 @@ radius = 20.0
 material = SubResource("ShaderMaterial_soouh")
 rounds = 4
 inventory_item = ExtResource("3_gewqg")
+pick_up_name = "S.G Shells"
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_uch51")
@@ -33,5 +34,4 @@ shape = SubResource("CircleShape2D_uch51")
 debug_color = Color(1, 1, 1, 0)
 
 [node name="DetectedAnimation" parent="." index="3"]
-position = Vector2(0, -30)
 frame_progress = 0.626546

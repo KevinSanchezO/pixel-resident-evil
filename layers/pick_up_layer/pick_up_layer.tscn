@@ -1,3 +1,3 @@
 [gd_scene format=3 uid="uid://ksj0fvre1kjk"]
 
-[node name="PickUpLayer" type="Node2D"]
+[node name="PickUpLayer" type="Node2D" groups=["pick_up_layer"]]

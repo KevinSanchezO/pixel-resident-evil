@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://x8hepgosxnic"]
+
+[ext_resource type="PackedScene" uid="uid://cfxu6qk3e8wsc" path="res://vfx/cases/case/case.tscn" id="1_513ld"]
+[ext_resource type="Texture2D" uid="uid://bdsscu6pxt747" path="res://vfx/cases/shell_case/shell.png" id="2_prmg2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_duq1a"]
+radius = 6.0
+
+[node name="ShellCase" instance=ExtResource("1_513ld")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_prmg2")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_duq1a")

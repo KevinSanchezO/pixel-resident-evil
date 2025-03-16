@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyk4h4816mys8"]
+
+[ext_resource type="PackedScene" uid="uid://ceewu7wh1vcif" path="res://scenes/game_objects/pick_ups/pick_up/pick_up.tscn" id="1_3w3bs"]
+[ext_resource type="Shader" path="res://resources/shaders/2d_highlight.gdshader" id="2_t046e"]
+[ext_resource type="Script" path="res://scenes/game_objects/pick_ups/weapon_pick_ups/weapon_pick_up/weapon_pick_up.gd" id="3_tpwq5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdcyo"]
+resource_local_to_scene = true
+shader = ExtResource("2_t046e")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
+[node name="WeaponPickUp" instance=ExtResource("1_3w3bs")]
+material = SubResource("ShaderMaterial_gdcyo")
+script = ExtResource("3_tpwq5")
+mag_size = 0
+
+[node name="PickUpSprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_gdcyo")

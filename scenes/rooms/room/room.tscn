@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bh2x77ujb4vf7"]
+[gd_scene load_steps=16 format=3 uid="uid://bh2x77ujb4vf7"]
 
 [ext_resource type="PackedScene" uid="uid://bidc38yu8bcp3" path="res://ui/crt/crt.tscn" id="1_2i2li"]
 [ext_resource type="PackedScene" uid="uid://8oxowmexwkck" path="res://scenes/game_objects/entities/player/player.tscn" id="1_5ydjl"]
-[ext_resource type="Texture2D" uid="uid://fax25u74gdkh" path="res://icon.svg" id="2_d042y"]
+[ext_resource type="PackedScene" uid="uid://cs1r8k8yiicju" path="res://scenes/components/picked_message/picked_message.tscn" id="2_s25lh"]
 [ext_resource type="PackedScene" uid="uid://ksj0fvre1kjk" path="res://layers/pick_up_layer/pick_up_layer.tscn" id="3_j4hq1"]
 [ext_resource type="Shader" path="res://resources/shaders/2d_highlight.gdshader" id="4_ijohw"]
 [ext_resource type="PackedScene" uid="uid://dq03k8ap76dy" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/pistol_ammo_pick_up/pistol_ammo_pick_up.tscn" id="4_sioxl"]
 [ext_resource type="PackedScene" uid="uid://bbbimq68bhx7v" path="res://scenes/game_objects/pick_ups/ammo_pick_ups/shotgun_ammo_pick_up/shotgun_ammo_pick_up.tscn" id="5_utce4"]
+[ext_resource type="PackedScene" uid="uid://535npag267ai" path="res://scenes/game_objects/pick_ups/weapon_pick_ups/shotgun_pick_up/shotgun_pick_up.tscn" id="7_y6qhp"]
+[ext_resource type="PackedScene" uid="uid://dp18ee0k2pvbl" path="res://layers/projectile_layer/projectile_layer.tscn" id="8_flsyw"]
+[ext_resource type="PackedScene" uid="uid://dstcphte5p8ju" path="res://layers/case_layer/case_layer.tscn" id="9_adbm5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_58tun"]
 resource_local_to_scene = true
@@ -40,25 +43,20 @@ shader_parameter/frequency = 0.35
 shader_parameter/highlight_speed = 3.0
 shader_parameter/highlight_width = 10.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1enp"]
+resource_local_to_scene = true
+shader = ExtResource("4_ijohw")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
 [node name="Room" type="Node2D"]
 
 [node name="CRT" parent="." instance=ExtResource("1_2i2li")]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-287, -163)
-texture = ExtResource("2_d042y")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(-258, 194)
-texture = ExtResource("2_d042y")
-
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(379, -177)
-texture = ExtResource("2_d042y")
-
-[node name="Icon4" type="Sprite2D" parent="."]
-position = Vector2(334, 171)
-texture = ExtResource("2_d042y")
+[node name="PickedMessage" parent="." instance=ExtResource("2_s25lh")]
+offset_right = 145.0
 
 [node name="PickUpLayer" parent="." instance=ExtResource("3_j4hq1")]
 
@@ -70,12 +68,20 @@ position = Vector2(158, 145)
 material = SubResource("ShaderMaterial_jnb3p")
 position = Vector2(-181, -43)
 
-[node name="Player" parent="." instance=ExtResource("1_5ydjl")]
-
-[node name="PistolAmmoPickUp" parent="." instance=ExtResource("4_sioxl")]
+[node name="PistolAmmoPickUp2" parent="PickUpLayer" instance=ExtResource("4_sioxl")]
 material = SubResource("ShaderMaterial_45btx")
 position = Vector2(211, -222)
 
-[node name="ShotgunAmmoPickUp" parent="." instance=ExtResource("5_utce4")]
+[node name="ShotgunAmmoPickUp2" parent="PickUpLayer" instance=ExtResource("5_utce4")]
 material = SubResource("ShaderMaterial_bh31m")
 position = Vector2(-418, 217)
+
+[node name="ShotgunPickUp" parent="PickUpLayer" instance=ExtResource("7_y6qhp")]
+material = SubResource("ShaderMaterial_w1enp")
+position = Vector2(347, 304)
+
+[node name="ProjectileLayer" parent="." instance=ExtResource("8_flsyw")]
+
+[node name="CaseLayer" parent="." instance=ExtResource("9_adbm5")]
+
+[node name="Player" parent="." instance=ExtResource("1_5ydjl")]

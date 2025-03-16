@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0gpyd0w27jy1"]
+
+[ext_resource type="PackedScene" uid="uid://bbkfoo7nw8whk" path="res://scenes/game_objects/weapons/weapon/weapon.tscn" id="1_4h61x"]
+[ext_resource type="Script" path="res://scenes/game_objects/weapons/range_weapon/range_weapon.gd" id="2_g37os"]
+[ext_resource type="PackedScene" uid="uid://cavk5rr1blmy0" path="res://scenes/components/projectile_spawner/projectile_spawner.tscn" id="3_u5ss3"]
+[ext_resource type="PackedScene" uid="uid://c8mmqwebmnoag" path="res://scenes/components/casing_spawner/casing_spawner.tscn" id="4_bj2nq"]
+
+[node name="RangeWeapon" instance=ExtResource("1_4h61x")]
+script = ExtResource("2_g37os")
+
+[node name="ProjectileSpawner" parent="." index="1" instance=ExtResource("3_u5ss3")]
+
+[node name="CasingSpawner" parent="." index="2" instance=ExtResource("4_bj2nq")]
+
+[node name="ReloadCooldown" type="Timer" parent="." index="3"]

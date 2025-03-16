@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://535npag267ai"]
+
+[ext_resource type="PackedScene" uid="uid://cyk4h4816mys8" path="res://scenes/game_objects/pick_ups/weapon_pick_ups/weapon_pick_up/weapon_pick_up.tscn" id="1_ti6po"]
+[ext_resource type="Shader" path="res://resources/shaders/2d_highlight.gdshader" id="2_akpqx"]
+[ext_resource type="Texture2D" uid="uid://blx1tod2261do" path="res://scenes/game_objects/pick_ups/weapon_pick_ups/shotgun_pick_up/rebellion.png" id="3_4e130"]
+[ext_resource type="PackedScene" uid="uid://h77t7j1pc8h2" path="res://scenes/game_objects/inventory_items/weapon_items/shotgun_item/shotgun_item.tscn" id="3_qd8x1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ud35"]
+resource_local_to_scene = true
+shader = ExtResource("2_akpqx")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 3.0
+shader_parameter/highlight_width = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxesh"]
+radius = 30.0
+
+[node name="ShotgunPickUp" instance=ExtResource("1_ti6po")]
+material = SubResource("ShaderMaterial_4ud35")
+mag_size = 2
+inventory_item = ExtResource("3_qd8x1")
+pick_up_name = "Rebellion"
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_lxesh")
+
+[node name="PickUpSprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_4ud35")
+position = Vector2(0, -4)
+scale = Vector2(2, 2)
+texture = ExtResource("3_4e130")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" index="0"]
+shape = SubResource("CircleShape2D_lxesh")
+debug_color = Color(1, 1, 1, 0)

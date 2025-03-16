@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dstcphte5p8ju"]
+
+[node name="CaseLayer" type="Node2D" groups=["case_layer"]]
